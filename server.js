@@ -12,8 +12,13 @@ const home = require("./routes/home.js");
 const yelpAPI = require("./routes/yelp.js");
 const bingAPI = require("./routes/bing.js");
 const missingPage = require("./routes/missingPage.js");
+
+
+
+// setup AUTH0
 // const verifyUser = require("./auth.js");
 // app.use(verifyUser);
+
 mongoose.connect(process.env.DB_URL);
 
 const db = mongoose.connection;
