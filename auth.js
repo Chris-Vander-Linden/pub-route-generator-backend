@@ -3,7 +3,6 @@
 const jwt = require('jsonwebtoken'); // auth
 const jwksClient = require('jwks-rsa'); // auth
 
-
 function verifyUser(request, response, next) {
 
     function valid(err, user) {
@@ -19,12 +18,9 @@ function verifyUser(request, response, next) {
     }
 }
 
-
-
 const client = jwksClient({
     jwksUri: process.env.JWKS_URI,
 });
-
 
 function getKey(header, callback) {
     client.getSigningKey(header.kid, function (err, key) {
@@ -32,7 +28,5 @@ function getKey(header, callback) {
         callback(null, signingKey);
     });
 }
-
-
 
 module.exports = verifyUser;
